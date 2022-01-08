@@ -39,7 +39,7 @@ const FormCreateAccountComponent = () => {
     <div class="mt-5 ml-64 md:mt-0 md:col-span-2 ">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div class="shadow overflow-hidden sm:rounded-md">
-          <div class="px-7 py-8 bg-gray-200 sm:p-6 ">
+          <div class="px-7 py-8 bg-white shadow-inner sm:p-6 ">
             <div class="grid grid-cols-6 gap-6 px-7 py-7">
               <div class="col-span-6 sm:col-span-3">
                 <label
@@ -51,7 +51,7 @@ const FormCreateAccountComponent = () => {
                 <input
                   {...register("nama_user")}
                   type="text"
-                  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-10 shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-10 drop-shadow-md sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
 
@@ -65,7 +65,7 @@ const FormCreateAccountComponent = () => {
                 <input
                   {...register("username")}
                   type="text"
-                  class="mt-1 focus:ring-indigo-500 h-10 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  class="mt-1 focus:ring-indigo-500 h-10 focus:border-indigo-500 block w-full drop-shadow-md sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
 
@@ -89,7 +89,7 @@ const FormCreateAccountComponent = () => {
                     },
                   })}
                   type="text"
-                  class="mt-1 focus:ring-indigo-500 h-10 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  class="mt-1 focus:ring-indigo-500 h-10 focus:border-indigo-500 block w-full drop-shadow-md sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
 
@@ -103,7 +103,7 @@ const FormCreateAccountComponent = () => {
                 <input
                   {...register("password")}
                   type="password"
-                  class="mt-1 focus:ring-indigo-500 h-10 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  class="mt-1 focus:ring-indigo-500 h-10 focus:border-indigo-500 block w-full drop-shadow-md sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
               <div class="col-span-6 sm:col-span-3">
@@ -115,7 +115,7 @@ const FormCreateAccountComponent = () => {
                 </label>
                 <select
                   {...register("gender")}
-                  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md drop-shadow-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 >
                   <option>male</option>
                   <option>female</option>
@@ -132,22 +132,22 @@ const FormCreateAccountComponent = () => {
                 <input
                   {...register("no_hp")}
                   type="text"
-                  class="mt-1 focus:ring-indigo-500 h-10 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  class="mt-1 focus:ring-indigo-500 h-10 focus:border-indigo-500 block w-full drop-shadow-md sm:text-sm border-gray-300 rounded-md"
                 />
 
                 <input
                   {...register("role")}
                   type="hidden"
                   value="adminMitra"
-                  class="mt-1 focus:ring-indigo-500 h-10 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  class="mt-1 focus:ring-indigo-500 h-10 focus:border-indigo-500 block w-full drop-shadow-md sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
             </div>
           </div>
-          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+          <div class="px-4 py-3 bg-white drop-shadow-md text-right sm:px-6">
             <button
               type="submit"
-              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="inline-flex justify-center py-2 px-4 border border-transparent drop-shadow-md text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Save
             </button>

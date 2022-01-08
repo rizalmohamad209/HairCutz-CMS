@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { BiLoader } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Redux/features/auth/actions";
 
 const LoginComponent = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -16,21 +18,22 @@ const LoginComponent = () => {
 
   const { isLoggedIn } = useSelector((state) => state.auth);
   const onSubmit = async (data) => {
+    setLoading(true);
     let formData = new FormData();
     formData.append("username", data.username);
     formData.append("password", data.password);
     dispatch(login(formData))
       .then((data) => {
+        console.log("ini data", data);
         if (data !== null && data.role === "admin") {
-          navigate("/");
-          window.location.reload();
+          navigate("/dashboard");
         } else if (data !== null && data.role === "adminMitra") {
           navigate("/booking");
-          window.location.reload();
         }
       })
       .catch((error) => {
-        console.log(error);
+        setLoading(false);
+        navigate("/login");
       });
   };
 
@@ -58,7 +61,7 @@ const LoginComponent = () => {
             placeholder="Enter Username"
             className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
           />
-          {errors.password && (
+          {errors.username && (
             <p style={{ color: "#bf1650" }}>{errors.username.message}</p>
           )}
         </div>
@@ -99,7 +102,11 @@ const LoginComponent = () => {
           className="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg
               px-4 py-3 mt-6"
         >
-          Log In
+          {loading ? (
+            <BiLoader className="text-white animate-spin  text-2xl mx-auto" />
+          ) : (
+            "Sign In"
+          )}
         </button>
       </form>
     </div>

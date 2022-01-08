@@ -3,7 +3,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 ChartJS.register(ArcElement, Tooltip, Legend);
 const data = {
-  labels: ["Laki-laki", "Perempuan"],
+  labels: ["Done", "Waiting"],
   datasets: [
     {
       label: "# of Votes",

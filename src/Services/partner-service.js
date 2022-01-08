@@ -19,3 +19,21 @@ export const postPartner = (data) => {
     headers: authHeader(),
   });
 };
+
+export const updatePartner = (data) => {
+  return axios.put(`${API_URL}mitra`, data, {
+    headers: authHeader(),
+  });
+};
+
+export const deleteMitra = (id) => {
+  return axios.delete(`${API_URL}mitra/${id}`, {
+    headers: authHeader(),
+  });
+};
+
+export const detailMitra = () => {
+  return axios.get(`${API_URL}mitraDetails`, {
+    headers: authHeader(),
+  });
+};

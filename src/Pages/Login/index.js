@@ -22,16 +22,6 @@ const Login = () => {
             </h1>
             <LoginComponent />
             <hr className="my-6 border-gray-300 w-full" />
-
-            <p className="mt-8">
-              Need an account?{" "}
-              <a
-                href="#"
-                className="text-blue-500 hover:text-blue-700 font-semibold"
-              >
-                Create an account
-              </a>
-            </p>
           </div>
         </div>
       </section>

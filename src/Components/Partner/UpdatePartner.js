@@ -15,7 +15,7 @@ const UpdatePartnerComponent = () => {
             </div>
           </div>
         </div>
-        <div className=" px-5">
+        <div className=" ">
           <div className=" bg-white rounded-md p-5  h-auto">
             <FormEditPartner />
           </div>

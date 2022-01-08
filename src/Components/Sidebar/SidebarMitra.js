@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "../../Redux/features/auth/actions";
+import { useSelector } from "react-redux";
 
 const SidebarMitra = () => {
+  const { user: currentUser } = useSelector((state) => state.auth);
   const [show, setShow] = React.useState(false);
   let dispatch = useDispatch();
   let navigate = useNavigate();
@@ -19,23 +21,25 @@ const SidebarMitra = () => {
           <div className="mx-auto bg-primary  h-screen ">
             <div className="px-6 py-6">
               <img
-                src="https://res.cloudinary.com/dk4dgvu4w/image/upload/v1605896307/profil_dxb6br.jpg"
+                src="https://res.cloudinary.com/dk4dgvu4w/image/upload/v1641680349/Pngtree_flat_pattern_user_pattern_round_4492889_eaesqz.png"
                 alt=""
                 className="w-40 h-40 rounded-full mx-auto"
               />
               <h1 className="text-center text-white font-semibold mt-3">
-                Mohamad Rizal Khamami
+                {currentUser.nama_user}
               </h1>
-              <h1 className="text-white bg-purple-800 text-center px-3 py-2 rounded-xl mt-3">
-                Admin
-              </h1>
+              <Link to="/data-mitra">
+                <h1 className="text-white bg-purple-800 text-center px-3 py-2 rounded-xl mt-3">
+                  Admin Mitra
+                </h1>
+              </Link>
             </div>
             <div className="bg-four  py-2 px-6 rounded-3xl z-20 mt-1">
               <div className="flex flex-col  ">
                 <ul className="flex-col min-w-full flex list-none">
                   <li className="rounded-lg mb-1">
                     <Link
-                      to="/"
+                      to="/dashboard-mitra"
                       exact
                       className="flex items-center gap-4 text-xl text-white font-medium px-4 py-3 rounded-lg"
                       activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
@@ -50,7 +54,7 @@ const SidebarMitra = () => {
                   </li>
                   <li className="rounded-lg mb-1">
                     <Link
-                      to="/berita"
+                      to="/booking"
                       className="flex items-center gap-4 text-xl text-white font-medium px-4 py-3 rounded-lg"
                       activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                     >
@@ -59,7 +63,21 @@ const SidebarMitra = () => {
                         alt=""
                         className="w-8 h-8"
                       />
-                      <span>Berita</span>
+                      <span>Booking</span>
+                    </Link>
+                  </li>
+                  <li className="rounded-lg mb-1">
+                    <Link
+                      to="/history-booking"
+                      className="flex items-center gap-4 text-xl text-white font-medium px-4 py-3 rounded-lg"
+                      activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
+                    >
+                      <img
+                        src="https://res.cloudinary.com/dk4dgvu4w/image/upload/v1605896306/receipt_orlj8m.svg"
+                        alt=""
+                        className="w-8 h-8"
+                      />
+                      <span>History </span>
                     </Link>
                   </li>
                 </ul>

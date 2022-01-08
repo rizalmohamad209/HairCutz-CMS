@@ -7,20 +7,15 @@ export const login = (data) => (dispatch) => {
     (data) => {
       dispatch({
         type: LOGIN_SUCCESS,
-        payload: { user: data.data },
+        payload: { user: data },
       });
       return Promise.resolve(data);
     },
     (error) => {
-      const message =
-        (error.response && error.response.data && error.response.data.error) ||
-        error.error ||
-        error.toString();
-
       dispatch({
         type: LOGIN_FAIL,
       });
-      return Promise.reject(message);
+      return Promise.reject(error);
     }
   );
 };
