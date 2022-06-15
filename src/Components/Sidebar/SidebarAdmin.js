@@ -105,7 +105,7 @@ const SidebarAdmin = () => {
             <div className="items-center ml-8 py-3 content-center">
               <h1
                 onClick={Logout}
-                className=" items-center text-white cursor-pointer text-lg px-10 absolute bottom-10 bg-red-600 text-center  py-2 rounded-xl  flex   font-medium text-xl"
+                className=" items-center text-white cursor-pointer  px-10 absolute bottom-10 bg-red-600 text-center  py-2 rounded-xl  flex   font-medium text-xl"
               >
                 <img
                   src="https://res.cloudinary.com/dk4dgvu4w/image/upload/v1605896304/logout_he6ph1.svg"
