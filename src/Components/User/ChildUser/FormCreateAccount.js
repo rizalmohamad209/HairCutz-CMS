@@ -1,13 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { signUpService } from "../../../Services/auth-services";
+import { useNavigate } from "react-router-dom";
 
 const FormCreateAccountComponent = () => {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors },
+
   } = useForm();
 
   const onSubmit = (data) => {
@@ -19,21 +20,22 @@ const FormCreateAccountComponent = () => {
     formData.append("role", data.role);
     formData.append("no_hp", data.no_hp);
     formData.append("gender", data.gender);
-    console.log(data);
+
     signUpService(formData)
       .then((data) => {
         if (data.data.status === 200) {
+          localStorage.setItem("id_mitra", JSON.stringify(data.data.data.id_user));
           alert("Berhasil Membuat Akun");
+          navigate("/create-partner")
         }
       })
       .catch((error) => {
         if (error.response.status === 500) {
           alert("Username or Email is already exists");
         }
-        // swal("Error!", , "error");
+
       });
 
-    //    dispatch(postMitra(formData));
   };
   return (
     <div class="mt-5 ml-64 md:mt-0 md:col-span-2 ">

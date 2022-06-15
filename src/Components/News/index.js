@@ -11,7 +11,6 @@ const NewsComponent = () => {
   useEffect(() => {
     getAllNews().then((data) => {
       setNews(data.data.data);
-      setLoading(true);
     });
   }, [refresh]);
   const handleEditNews = (e) => {

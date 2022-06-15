@@ -1,29 +1,27 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { postPartner } from "../../../Services/partner-service";
-import Tambahmitra from "../../Mapmitra/index";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
+
+
 const FormCreatePartnerComponent = () => {
-  const [latLong, setLatLong] = React.useState(null);
+  const navigate = useNavigate()
+
   const [preview, setPreview] = React.useState(null);
   const [selectedFile, setSelectedFile] = React.useState();
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     const id_mitra = JSON.parse(localStorage.getItem("id_mitra"));
     let newImage = data.image[0];
-    let lat = latLong[1];
-    let long = latLong[0];
-    console.log(long, lat, "data lat long");
+
+
     let formData = new FormData();
     formData.append("image", newImage);
-    formData.append("lat", lat);
-    formData.append("long", long);
+
     formData.append("user_id", id_mitra);
     formData.append("nama_mitra", data.nama_mitra);
     formData.append("alamat_mitra", data.alamat_mitra);
@@ -31,24 +29,23 @@ const FormCreatePartnerComponent = () => {
 
     postPartner(formData)
       .then((data) => {
-        if (data.data.data.status === 200) {
-          alert("Berhasil Membuat Akun");
+        if (data.data.status === 200) {
+          alert("Berhasil Membuat Mitra");
+          navigate("/partner");
         }
       })
       .catch((error) => {
         if (error.response.status === 500) {
           alert("Username or Email is already exists");
         }
-        // swal("Error!", , "error");
+
       });
   };
-  function handleLatLong(latlong) {
-    setLatLong(latlong);
-  }
+
 
   const onSelectFile = (e) => {
     if (e.target.files[0]) {
-      console.log("picture: ", e.target.files);
+
       setSelectedFile(e.target.files[0]);
       const reader = new FileReader();
       reader.addEventListener("load", () => {
@@ -121,10 +118,7 @@ const FormCreatePartnerComponent = () => {
           </div>
         </div>
         <div>
-          <div class="w-full flex flex-col mt-8 ">
-            <label class="font-semibold leading-none mb-5">Alamat</label>
-            <Tambahmitra handleLatLong={handleLatLong} />
-          </div>
+
         </div>
         <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
           <button

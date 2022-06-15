@@ -25,7 +25,7 @@ const SidebarAdmin = () => {
                 className="w-24 h-24 rounded-full mx-auto"
               />
               <h1 className="text-center text-white font-semibold mt-3">
-                Mohamad Rizal Khamami
+                {currentUser.nama_user}
               </h1>
               <Link to="/edit-account-partner">
                 <h1 className="text-white bg-purple-800 text-center px-3 py-2 rounded-xl mt-3">
@@ -88,13 +88,7 @@ const SidebarAdmin = () => {
                             </h1>
                           </li>
                         </Link>
-                        <Link to="/allmap-partner">
-                          <li className="text-white font-normal">
-                            <h1 className="flex items-center   gap-4   rounded-lg text-white cursor-pointer">
-                              - Map Mitra
-                            </h1>
-                          </li>
-                        </Link>
+
                         <Link to="/create-account-partner">
                           <li className="text-white font-normal">
                             <h1 className="flex items-center   gap-4   rounded-lg text-white cursor-pointer">
