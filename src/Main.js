@@ -54,7 +54,7 @@ const Main = (props) => {
       <Routes>
         <Fragment>
           <Route
-            path="/dashboard"
+            path="/"
             exact
             element={
               <AdminRoute>
@@ -138,7 +138,10 @@ const Main = (props) => {
               </MitraRoute>
             }
           />
-          <Route path="/edit-account-partner" element={<UpdateAccountPage />} />
+          <Route path="/edit-account-partner" element={
+            <AdminRoute>
+              <UpdateAccountPage />
+            </AdminRoute>} />
 
           <Route
             path="/history-booking"
@@ -159,7 +162,11 @@ const Main = (props) => {
 
           <Route
             path="/create-account-partner"
-            element={<CreateAccountPage />}
+            element={
+              <AdminRoute>
+                <CreateAccountPage />
+              </AdminRoute>
+            }
           />
         </Fragment>
       </Routes>

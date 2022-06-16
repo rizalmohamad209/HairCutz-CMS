@@ -38,7 +38,7 @@ const SidebarAdmin = () => {
                 <ul className="flex-col min-w-full flex list-none">
                   <li className="rounded-lg mb-1">
                     <Link
-                      to="/dashboard"
+                      to="/"
                       exact
                       className="flex items-center gap-4 text-xl text-white font-medium px-4 py-3 rounded-lg"
                       activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"

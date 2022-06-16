@@ -26,7 +26,7 @@ const LoginComponent = () => {
       .then((data) => {
         console.log("ini data", data);
         if (data !== null && data.role === "admin") {
-          navigate("/dashboard");
+          navigate("/");
         } else if (data !== null && data.role === "adminMitra") {
           navigate("/booking");
         }
